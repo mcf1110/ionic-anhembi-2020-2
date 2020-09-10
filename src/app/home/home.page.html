@@ -6,5 +6,26 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding ion-text-center">
+
+  <h1>Valor Atual: {{currentValue}}</h1>
+  <h2>Valor Máximo: {{maxValue}}</h2>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="auto">
+      <ion-button (click)="decrement()">
+        <ion-icon slot="icon-only" name="remove"></ion-icon>
+      </ion-button>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-button color="danger" (click)="reset()">
+        <ion-icon slot="icon-only" name="refresh"></ion-icon>
+      </ion-button>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-button (click)="increment()">
+        <ion-icon slot="icon-only" name="add"> </ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

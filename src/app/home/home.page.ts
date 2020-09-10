@@ -6,7 +6,24 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  public currentValue = 0;
+  public maxValue = 0;
 
-  constructor() {}
+  public increment() {
+    this.currentValue++;
+    if (this.currentValue > this.maxValue) {
+      this.maxValue = this.currentValue;
+    }
+  }
+
+  public decrement() {
+    if (this.currentValue > 0) {
+      this.currentValue--;
+    }
+  }
+
+  public reset() {
+    this.currentValue = 0;
+  }
 
 }
