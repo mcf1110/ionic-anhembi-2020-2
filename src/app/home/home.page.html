@@ -1,10 +1,119 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Meu app
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
+  <h1>
+    <strong>
+      Hi Mike, <br>
+      Where do you want to go?
+    </strong>
+  </h1>
 
-<ion-content>
+  <ion-item>
+    <ion-icon name="location" slot="start"></ion-icon>
+    <ion-input placeholder="Input destination"></ion-input>
+    <ion-icon name="arrow-forward" slot="end"></ion-icon>
+  </ion-item>
+
+  <ion-row class="ion-align-items-center ion-margin-top">
+    <ion-col size="auto">
+      <h2 class="ion-no-margin"><strong>Daily Scenary</strong></h2>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-text color="primary">
+        <p class="ion-no-margin"><small>Updated</small></p>
+      </ion-text>
+    </ion-col>
+    <ion-col class="ion-text-end">
+      <ion-text color="medium">
+        <p class="ion-no-margin">More</p>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-card>
+    <img class="daily-scenary-picture"
+      src="https://images.pexels.com/photos/97906/pexels-photo-97906.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+      alt="">
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <ion-card-header>
+          <ion-card-subtitle>10/09/2020</ion-card-subtitle>
+          <ion-card-title>São Paulo, SP</ion-card-title>
+        </ion-card-header>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-row>
+          <ion-avatar class=" daily-scenary-avatar">
+            <img src="https://randomuser.me/api/portraits/men/35.jpg" alt="">
+          </ion-avatar>
+          <ion-avatar class="daily-scenary-avatar">
+            <img src="https://randomuser.me/api/portraits/women/76.jpg" alt="">
+          </ion-avatar>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-row class="ion-align-items-center ion-margin-top">
+    <ion-col size="auto">
+      <h2 class="ion-no-margin"><strong>City</strong></h2>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-badge>
+        Hot
+      </ion-badge>
+    </ion-col>
+    <ion-col class="ion-text-end">
+      <ion-text color="medium">
+        <p class="ion-no-margin">More</p>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row>
+    <ion-col>
+      <ion-card class="city-card">
+        <img
+          src="https://images.pexels.com/photos/2868242/pexels-photo-2868242.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+        <h3>Rio de Janeiro</h3>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card class="city-card">
+        <img
+          src="https://images.pexels.com/photos/2449231/pexels-photo-2449231.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+        <h3>Brasília</h3>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card class="city-card">
+        <img
+          src="https://images.pexels.com/photos/1045211/pexels-photo-1045211.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+        <h3>Curitiba</h3>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+
+  <h2><strong>Master</strong></h2>
+
+  <ion-row class="master-section ion-align-items-center">
+    <ion-col size="auto">
+      <ion-avatar><img src="https://randomuser.me/api/portraits/women/1.jpg" alt=""></ion-avatar>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-avatar><img src="https://randomuser.me/api/portraits/women/11.jpg" alt=""></ion-avatar>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-avatar><img src="https://randomuser.me/api/portraits/women/16.jpg" alt=""></ion-avatar>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-avatar><img src="https://randomuser.me/api/portraits/women/42.jpg" alt=""></ion-avatar>
+    </ion-col>
+    <ion-col>
+      <ion-text color="primary">
+        Join them.
+      </ion-text>
+    </ion-col>
+  </ion-row>
 </ion-content>
