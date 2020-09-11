@@ -1,19 +1,24 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Meu app
+      Minha Fintech
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding ion-text-center">
 
+  <ion-item>
+    <ion-label position="floating">Valor</ion-label>
+    <ion-input [(ngModel)]="selectedCash" type="number"></ion-input>
+  </ion-item>
+
   <h1>Valor Atual: {{currentValue}}</h1>
   <h2>Valor Máximo: {{maxValue}}</h2>
 
   <ion-row class="ion-justify-content-center">
     <ion-col size="auto">
-      <ion-button (click)="decrement()">
+      <ion-button (click)="decrement()" [disabled]="selectedCash <= 0">
         <ion-icon slot="icon-only" name="remove"></ion-icon>
       </ion-button>
     </ion-col>
@@ -23,7 +28,7 @@
       </ion-button>
     </ion-col>
     <ion-col size="auto">
-      <ion-button (click)="increment()">
+      <ion-button (click)="increment()" [disabled]="selectedCash <= 0">
         <ion-icon slot="icon-only" name="add"> </ion-icon>
       </ion-button>
     </ion-col>
