@@ -7,6 +7,21 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor() { }
+
+  public tasks = [
+    { name: 'Learn Ionic', completed: false },
+    { name: 'Buy Milk', completed: true },
+  ];
+
+  public newTask = '';
+
+  public addToList() {
+    this.tasks.push({
+      name: this.newTask,
+      completed: false
+    });
+    this.newTask = '';
+  }
 
 }

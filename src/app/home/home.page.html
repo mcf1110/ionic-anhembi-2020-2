@@ -1,10 +1,32 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Meu app
+      To-do
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-toolbar color="light" class="ion-margin-bottom">
+    <ion-item color="light">
+      <ion-label position="floating">Nova tarefa</ion-label>
+      <ion-input [(ngModel)]="newTask"></ion-input>
+    </ion-item>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="addToList()">
+        <ion-icon name="add" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-list>
+    <ion-item *ngFor="let task of tasks">
+      <ion-checkbox slot="start" [(ngModel)]="task.completed"></ion-checkbox>
+      <ion-label>{{task.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <pre>{{tasks | json}}</pre>
+  <pre>{{newTask | json}}</pre>
 </ion-content>
