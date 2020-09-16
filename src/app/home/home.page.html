@@ -1,10 +1,62 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Meu app
+      Conversor de bits
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">{{fromUnit}}</ion-label>
+        <ion-input type="number" [(ngModel)]="fromValue" (ionChange)="calculate()"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">From</ion-label>
+        <ion-select (ionChange)="calculate()" placeholder="Select One" [(ngModel)]="fromUnit">
+          <ion-select-option value="bit">Bit</ion-select-option>
+          <ion-select-option value="byte">Byte</ion-select-option>
+          <ion-select-option value="kilobit">KiloBit</ion-select-option>
+          <ion-select-option value="kilobyte">KiloByte</ion-select-option>
+          <ion-select-option value="megabit">MegaBit</ion-select-option>
+          <ion-select-option value="megabyte">MegaByte</ion-select-option>
+          <ion-select-option value="gigabit">GigaBit</ion-select-option>
+          <ion-select-option value="gigabyte">Gigabyte</ion-select-option>
+          <ion-select-option value="terabit">TeraBit</ion-select-option>
+          <ion-select-option value="terabyte">Terabyte</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">{{toUnit}}</ion-label>
+        <ion-input disabled [(ngModel)]="toValue"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">To</ion-label>
+        <ion-select (ionChange)="calculate()" placeholder="Select One" [(ngModel)]="toUnit">
+          <ion-select-option value="bit">Bit</ion-select-option>
+          <ion-select-option value="byte">Byte</ion-select-option>
+          <ion-select-option value="kilobit">KiloBit</ion-select-option>
+          <ion-select-option value="kilobyte">KiloByte</ion-select-option>
+          <ion-select-option value="megabit">MegaBit</ion-select-option>
+          <ion-select-option value="megabyte">MegaByte</ion-select-option>
+          <ion-select-option value="gigabit">GigaBit</ion-select-option>
+          <ion-select-option value="gigabyte">Gigabyte</ion-select-option>
+          <ion-select-option value="terabit">TeraBit</ion-select-option>
+          <ion-select-option value="terabyte">Terabyte</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="dark" (click)="change()">
+      <ion-icon name="swap-horizontal"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
