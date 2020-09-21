@@ -10,11 +10,17 @@ export class HomePage {
   public maxValue = 0;
   public selectedCash = 0;
 
+  public transactionLog = [];
+
   public increment() {
     this.currentValue += this.selectedCash;
     if (this.currentValue > this.maxValue) {
       this.maxValue = this.currentValue;
     }
+    this.transactionLog.unshift({
+      amount: this.selectedCash,
+      date: new Date()
+    });
     this.selectedCash = 0;
   }
 
@@ -23,6 +29,10 @@ export class HomePage {
     if (this.currentValue < 0) {
       this.currentValue = 0;
     }
+    this.transactionLog.unshift({
+      amount: -1 * this.selectedCash,
+      date: new Date()
+    });
     this.selectedCash = 0;
   }
 

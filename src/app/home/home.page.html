@@ -33,4 +33,17 @@
       </ion-button>
     </ion-col>
   </ion-row>
+
+  <ion-list>
+    <ion-item *ngFor="let transaction of transactionLog">
+      <ion-icon slot="start" [name]="transaction.amount > 0 ? 'add' : 'remove'"
+        [color]="transaction.amount > 0 ? 'success' : 'danger'"></ion-icon>
+      <ion-label>
+        <h2>
+          {{transaction.amount}}
+        </h2>
+        <p>{{transaction.date | date:'medium'}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
