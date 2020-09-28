@@ -1,10 +1,49 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Meu app
+      Quiz
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card *ngIf="!showResult">
+    <ion-card-header>
+      <ion-card-title>{{questions[currentQuestion].text}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-radio-group [(ngModel)]="questions[currentQuestion].checkedAlternative">
+          <ion-item *ngFor="let alternative of questions[currentQuestion].alternatives; let i = index">
+            <ion-radio slot="start" [value]="i"></ion-radio>
+            <ion-label>{{alternative}}</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+
+      <ion-button (click)="next()" expand="block" [disabled]="questions[currentQuestion].checkedAlternative == null">
+        <ion-icon slot="end" name="chevron-forward"></ion-icon>
+        Próxima pergunta
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="showResult" color="primary">
+    <img [src]="possibleResults[mostAnswered].image" class="tv-show-image">
+    <ion-card-content>
+      <h2>
+        A maioria das suas respostas foi
+        {{possibleResults[mostAnswered].letter}}
+      </h2>
+      <h3>
+        Portanto, o seu filme é
+        {{possibleResults[mostAnswered].tvShow}}
+      </h3>
+
+      <ion-button (click)="confirmReset()" color="light" expand="block" class="ion-margin-top">
+        <ion-icon slot="start" name="refresh"></ion-icon>
+        Jogar de novo
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
