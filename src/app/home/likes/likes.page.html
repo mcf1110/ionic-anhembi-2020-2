@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Likes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-label><strong>Hoje</strong></ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let i of [1,2,3]">
+      <ion-avatar slot="start">
+        <img [src]="'https://randomuser.me/api/portraits/men/'+i+'.jpg'" alt="">
+      </ion-avatar>
+      <ion-label>
+        <strong>usuario_{{i}}</strong> curtiu sua publicação
+      </ion-label>
+      <img slot="end" class="photo-thumb"
+        src="https://images.pexels.com/photos/1438761/pexels-photo-1438761.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=25&w=25">
+    </ion-item>
+    <ion-list-header>
+      <ion-label><strong>Ontem</strong></ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let i of [1,2,3,4,5]">
+      <ion-avatar slot="start">
+        <img [src]="'https://randomuser.me/api/portraits/men/'+(i+5)+'.jpg'" alt="">
+      </ion-avatar>
+      <ion-label>
+        <strong>usuario_{{i}}</strong> curtiu sua publicação
+      </ion-label>
+      <img slot="end" class="photo-thumb"
+        src="https://images.pexels.com/photos/1438761/pexels-photo-1438761.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=25&w=25">
+    </ion-item>
+  </ion-list>
+</ion-content>

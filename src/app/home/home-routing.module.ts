@@ -6,6 +6,25 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
+    children: [
+      {
+        path: 'feed',
+        loadChildren: () => import('./feed/feed.module').then(m => m.FeedPageModule)
+      },
+      {
+        path: 'likes',
+        loadChildren: () => import('./likes/likes.module').then(m => m.LikesPageModule)
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
+      },
+      {
+        path: '',
+        redirectTo: 'feed',
+        pathMatch: 'full'
+      },
+    ]
   }
 ];
 
@@ -13,4 +32,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomePageRoutingModule {}
+export class HomePageRoutingModule { }

@@ -1,10 +1,18 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Meu app
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="feed">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Feed</ion-label>
+    </ion-tab-button>
 
-<ion-content>
-</ion-content>
+    <ion-tab-button tab="likes">
+      <ion-icon name="heart"></ion-icon>
+      <ion-label>Likes</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile">
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
