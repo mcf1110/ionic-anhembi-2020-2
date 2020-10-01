@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu contentId="menu-content" side="end" type="overlay">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-icon slot="start" name="timer-outline"></ion-icon>
+        <ion-label>Arquivar</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="timer-outline"></ion-icon>
+        <ion-label>Arquivar</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="timer-outline"></ion-icon>
+        <ion-label>Arquivar</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="timer-outline"></ion-icon>
+        <ion-label>Arquivar</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="timer-outline"></ion-icon>
+        <ion-label>Arquivar</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="timer-outline"></ion-icon>
+        <ion-label>Arquivar</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="timer-outline"></ion-icon>
+        <ion-label>Arquivar</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-content class="ion-padding">
+  <ion-router-outlet id="menu-content"></ion-router-outlet>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col>
+      <ion-avatar class="profile-pic">
+        <img src="https://randomuser.me/api/portraits/women/42.jpg" alt="">
+      </ion-avatar>
+    </ion-col>
+    <ion-col class="ion-text-center">
+      <h2 class="ion-no-margin"><strong>52</strong></h2>
+      <p class="ion-no-margin">Publicações</p>
+    </ion-col>
+    <ion-col class="ion-text-center">
+      <h2 class="ion-no-margin"><strong>1042</strong></h2>
+      <p class="ion-no-margin">Seguidores</p>
+    </ion-col>
+    <ion-col class="ion-text-center">
+      <h2 class="ion-no-margin"><strong>2127</strong></h2>
+      <p class="ion-no-margin">Seguindo</p>
+    </ion-col>
+  </ion-row>
+
+  <h3><strong>@maria</strong></h3>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+  <ion-row>
+    <ion-col size="4" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14]">
+      <img [src]="'https://picsum.photos/id/'+(100 + 2*i)+'/150'" alt="">
+    </ion-col>
+  </ion-row>
+
+</ion-content>

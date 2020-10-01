@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Atividade</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-label><strong>Stories sobre você</strong></ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img [src]="'https://randomuser.me/api/portraits/men/' + 0 + '.jpg'" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Menções</h2>
+        <p>2 stories mencionam você</p>
+      </ion-label>
+    </ion-item>
+
+
+    <ion-list-header>
+      <ion-label><strong>Hoje</strong></ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let i of [0,1,2,3,4]">
+      <ion-avatar slot="start">
+        <img [src]="'https://randomuser.me/api/portraits/men/' + (20+i) + '.jpg'" />
+      </ion-avatar>
+      <ion-label>
+        <h2><strong>@foo_bar_{{i}}</strong> curtiu sua publicação</h2>
+      </ion-label>
+      <img [src]="'https://picsum.photos/id/'+(10+i)+'/40'" slot="end">
+    </ion-item>
+
+
+    <ion-list-header>
+      <ion-label><strong>Ontem</strong></ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let i of [0,1,2,3,4,5,6,7]">
+      <ion-avatar slot="start">
+        <img [src]="'https://randomuser.me/api/portraits/men/' + (50+i) + '.jpg'" />
+      </ion-avatar>
+      <ion-label>
+        <h2><strong>@baz_{{i}}</strong> curtiu sua publicação</h2>
+      </ion-label>
+      <img [src]="'https://picsum.photos/id/'+(27+i)+'/40'" slot="end">
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="camera"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <img class="instagram-logo"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png"
+        width="100">
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="paper-plane"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row class="ion-justify-content-between">
+    <ion-col *ngFor="let i of [0,1,2,3,4,5]" size="auto">
+      <ion-avatar class="story-avatar">
+        <img [src]="'https://randomuser.me/api/portraits/women/' + (43+i) + '.jpg'" alt=""></ion-avatar>
+    </ion-col>
+  </ion-row>
+
+  <ion-card *ngFor="let i of [0,1,2,3,4]">
+    <ion-card-header>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="auto">
+          <ion-avatar class="feed-avatar">
+            <img [src]="'https://randomuser.me/api/portraits/women/'+i+'.jpg'" alt="">
+          </ion-avatar>
+        </ion-col>
+        <ion-col>
+          <ion-card-title>usuario_xpto{{i}}</ion-card-title>
+          <ion-card-subtitle>Lugar FooBar</ion-card-subtitle>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <img [src]="'https://picsum.photos/id/'+(237+i)+'/500'" alt="">
+    <ion-card-content>
+      <ion-row class="ion-margin-bottom">
+        <ion-col size="auto" class="ion-no-padding">
+          <ion-button fill="clear">
+            <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="auto" class="ion-no-padding">
+          <ion-button fill="clear">
+            <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="auto" class="ion-no-padding">
+          <ion-button fill="clear">
+            <ion-icon slot="icon-only" name="paper-plane-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="auto" class="ion-no-padding" style="margin-left: auto">
+          <ion-button fill="clear">
+            <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores molestias ex unde eos quas vitae consequuntur
+      sed fuga sint similique doloremque omnis modi, odit, libero, quia quos id aliquid ut.
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
