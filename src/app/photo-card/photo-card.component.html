@@ -1,0 +1,42 @@
+<ion-card>
+  <ion-card-header>
+    <ion-row>
+      <ion-col size="auto">
+        <ion-avatar class="user-avatar">
+          <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="">
+        </ion-avatar>
+      </ion-col>
+      <ion-col>
+        <ion-card-title>Usuário XYZ</ion-card-title>
+        <ion-card-subtitle>Lugar</ion-card-subtitle>
+      </ion-col>
+    </ion-row>
+  </ion-card-header>
+  <ion-card-content>
+    <img
+      [src]="'https://picsum.photos/id/'+(photoId)+'/360'"
+      class="square">
+    <ion-row>
+      <ion-col size="auto">
+        <ion-button fill="clear" color="danger" (click)="likedChange.emit(!liked)">
+          <ion-icon slot="icon-only" [name]="'heart' + (liked ?'': '-outline')"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button fill="clear">
+          <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button fill="clear">
+          <ion-icon slot="icon-only" name="send-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="auto" style="margin-left: auto">
+        <ion-button fill="clear">
+          <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>

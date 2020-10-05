@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FeedPageRoutingModule } from './feed-routing.module';
+import { ViewPageRoutingModule } from './view-routing.module';
 
-import { FeedPage } from './feed.page';
+import { ViewPage } from './view.page';
 import { PhotoCardComponent } from 'src/app/photo-card/photo-card.component';
 
 @NgModule({
@@ -14,8 +14,8 @@ import { PhotoCardComponent } from 'src/app/photo-card/photo-card.component';
     CommonModule,
     FormsModule,
     IonicModule,
-    FeedPageRoutingModule
+    ViewPageRoutingModule
   ],
-  declarations: [FeedPage, PhotoCardComponent]
+  declarations: [ViewPage, PhotoCardComponent]
 })
-export class FeedPageModule {}
+export class ViewPageModule {}

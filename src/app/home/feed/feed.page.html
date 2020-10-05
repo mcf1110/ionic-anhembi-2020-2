@@ -14,7 +14,9 @@
     </ion-col>
   </ion-row>
 
-  <ion-card *ngFor="let p of photos">
+  <app-photo-card *ngFor="let p of photos" [photoId]="p.id" [(liked)]="p.liked"></app-photo-card>
+
+  <!-- <ion-card *ngFor="let p of photos">
     <ion-card-header>
       <ion-row>
         <ion-col size="auto">
@@ -55,6 +57,6 @@
         </ion-col>
       </ion-row>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 
 </ion-content>
