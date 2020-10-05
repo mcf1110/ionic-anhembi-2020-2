@@ -58,9 +58,18 @@
     </p>
   </div>
 
+  <ion-segment [(ngModel)]="size">
+    <ion-segment-button value="4">
+      <ion-icon name="grid"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="12">
+      <ion-icon name="square"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
   <ion-row>
-    <ion-col size="4" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13]">
-      <img [src]="'https://picsum.photos/id/'+(i*10)+'/127'" alt="">
+    <ion-col [size]="size" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13]" class="transition">
+      <img [src]="'https://picsum.photos/id/'+(i*10)+'/411'" alt="">
     </ion-col>
   </ion-row>
 </ion-content>

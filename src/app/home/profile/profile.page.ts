@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePage implements OnInit {
 
+  public size = 4;
+
   constructor() { }
 
   ngOnInit() {

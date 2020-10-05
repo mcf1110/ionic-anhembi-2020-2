@@ -14,7 +14,7 @@
     </ion-col>
   </ion-row>
 
-  <ion-card *ngFor="let _ of [1,2,3,4]">
+  <ion-card *ngFor="let p of photos">
     <ion-card-header>
       <ion-row>
         <ion-col size="auto">
@@ -30,12 +30,12 @@
     </ion-card-header>
     <ion-card-content>
       <img
-        src="https://images.pexels.com/photos/3571576/pexels-photo-3571576.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        [src]="'https://picsum.photos/id/'+(p.id)+'/360'"
         class="square">
       <ion-row>
         <ion-col size="auto">
-          <ion-button fill="clear">
-            <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+          <ion-button fill="clear" (click)="toggleLike(p)" color="danger">
+            <ion-icon slot="icon-only" [name]="'heart' + (p.liked? '' : '-outline')"></ion-icon>
           </ion-button>
         </ion-col>
         <ion-col size="auto">

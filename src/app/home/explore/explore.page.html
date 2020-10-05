@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Explorar</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="light">
+    <ion-input placeholder="Buscar"></ion-input>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-margin-vertical">
+    <ion-chip *ngFor="let v of ['IGTV', 'Shop', 'Animals', 'Architecture', 'Home']">
+      <ion-label>{{v}}</ion-label>
+    </ion-chip>
+  </ion-row>
+  <ion-row>
+    <ion-col size="4" *ngFor="let i of [0,1,2,3,4,5,6,7,8,9, 10, 11, 12, 13, 14]">
+      <img [src]="'https://picsum.photos/id/'+(i*7)+'/127'" alt="">
+    </ion-col>
+  </ion-row>
+</ion-content>
