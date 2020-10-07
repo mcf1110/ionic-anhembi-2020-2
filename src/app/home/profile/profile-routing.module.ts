@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: ProfilePage
+  },
+  {
+    path: 'view',
+    loadChildren: () => import('./view/view.module').then( m => m.ViewPageModule)
   }
 ];
 
