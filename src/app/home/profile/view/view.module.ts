@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ViewPageRoutingModule } from './view-routing.module';
 
 import { ViewPage } from './view.page';
+import { PhotoCardComponent } from 'src/app/components/photo-card/photo-card.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ViewPage } from './view.page';
     IonicModule,
     ViewPageRoutingModule
   ],
-  declarations: [ViewPage]
+  declarations: [ViewPage, PhotoCardComponent]
 })
-export class ViewPageModule {}
+export class ViewPageModule { }

@@ -27,50 +27,6 @@
     </ion-col>
   </ion-row>
 
-  <ion-card *ngFor="let p of photos">
-    <ion-card-header>
-      <ion-row class="ion-align-items-center">
-        <ion-col size="auto">
-          <ion-avatar class="feed-avatar">
-            <img [src]="'https://randomuser.me/api/portraits/women/'+p.user.id+'.jpg'" alt="">
-          </ion-avatar>
-        </ion-col>
-        <ion-col>
-          <ion-card-title>{{p.user.name}}</ion-card-title>
-          <ion-card-subtitle>{{p.place}}</ion-card-subtitle>
-        </ion-col>
-      </ion-row>
-    </ion-card-header>
-    <img [src]="'https://picsum.photos/id/'+(p.id)+'/500'" alt="">
-    <ion-card-content>
-      <ion-row class="ion-margin-bottom">
-        <ion-col size="auto" class="ion-no-padding">
-          <ion-button fill="clear" color="danger" (click)="p.liked = !p.liked">
-            <ion-icon [class.novo-like]="p.liked" slot="icon-only" [name]="p.liked ? 'heart' : 'heart-outline'">
-            </ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col size="auto" class="ion-no-padding">
-          <ion-button fill="clear">
-            <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col size="auto" class="ion-no-padding">
-          <ion-button fill="clear">
-            <ion-icon slot="icon-only" name="paper-plane-outline"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col size="auto" class="ion-no-padding" style="margin-left: auto">
-          <ion-button fill="clear">
-            <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-      {{p.description}}<br>
-      <small>
-        Ver todos os {{p.comment_count}} comentários
-      </small>
-    </ion-card-content>
-  </ion-card>
+  <app-photo-card *ngFor="let p of photos" [photo]="p"></app-photo-card>
 
 </ion-content>
