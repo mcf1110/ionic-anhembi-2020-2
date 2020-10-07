@@ -1,0 +1,24 @@
+.scroll-x {
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+        width: 0.4em;
+        height: 0.4em;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--ion-color-light-shade);
+        border-radius: 50px;
+    }
+    &::-webkit-scrollbar-track {
+        background: var(--ion-color-light-tint);
+        border-radius: 4px;
+    }
+}
+.chip-row {
+    width: fit-content;
+}
+
+.explore-grid {
+    padding: 0 1px 0 1px;
+    margin-bottom: -2px;
+}

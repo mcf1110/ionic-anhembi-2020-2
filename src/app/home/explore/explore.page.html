@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon slot="start" name="search" class="ion-margin-start"></ion-icon>
+    <ion-input placeholder="Pesquisar"></ion-input>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="qr-code"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="scroll-x">
+    <ion-row class="ion-nowrap chip-row">
+      <ion-chip color="dark" outline
+        *ngFor="let i of ['IGTV', 'Loja', 'Viagens', 'Arquitetura', 'Decoração', 'Arte', 'Comida']">
+        <ion-label>{{i}}</ion-label>
+      </ion-chip>
+    </ion-row>
+  </div>
+
+  <ion-row class="ion-margin-top">
+    <ion-col class="explore-grid" size="4"
+      *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14, 15, 16, 17, 18, 19, 20, 21]">
+      <img [src]="'https://picsum.photos/id/'+(50 + i)+'/150'" alt="">
+    </ion-col>
+  </ion-row>
+
+</ion-content>
