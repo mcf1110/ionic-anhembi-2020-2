@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Photo } from 'src/app/photo-card/photo-card.component';
 
 @Component({
   selector: 'app-feed',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedPage implements OnInit {
 
-  public photos = [
+  public photos: Photo[] = [
     {
       id: 3,
       liked: false,
@@ -50,6 +51,7 @@ export class FeedPage implements OnInit {
       commentCount: 12,
       place: 'Sao Paulo, SP',
       url: 'https://images.daznservices.com/di/library/GOAL/0/a2/luiz-adriano-palmeiras-guarani-libertadores-10-03-2020_1gnekjto2rfri1mrholyrgs0qd.jpg?t=-939259984&…',
+      description: 'Teste',
       user: {
         name: 'Luiz',
         id: 7
