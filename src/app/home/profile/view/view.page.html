@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Informações da foto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="auto">
+          <ion-avatar class="feed-avatar">
+            <img [src]="'https://randomuser.me/api/portraits/women/42.jpg'" alt="">
+          </ion-avatar>
+        </ion-col>
+        <ion-col>
+          <ion-card-title>XXX</ion-card-title>
+          <ion-card-subtitle>YYY</ion-card-subtitle>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <img [src]="'https://picsum.photos/id/'+(id)+'/500'" alt="">
+    <ion-card-content>
+      <ion-row class="ion-margin-bottom">
+        <ion-col size="auto" class="ion-no-padding">
+          <ion-button fill="clear" color="danger">
+            <ion-icon slot="icon-only" name="heart">
+            </ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="auto" class="ion-no-padding">
+          <ion-button fill="clear">
+            <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="auto" class="ion-no-padding">
+          <ion-button fill="clear">
+            <ion-icon slot="icon-only" name="paper-plane-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="auto" class="ion-no-padding" style="margin-left: auto">
+          <ion-button fill="clear">
+            <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores at ea quo obcaecati atque, ipsam itaque,
+        corrupti maxime beatae voluptatibus minus vitae tempore, eos sit quisquam facilis fugiat minima iure.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
