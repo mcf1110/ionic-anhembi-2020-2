@@ -27,26 +27,27 @@
     </ion-col>
   </ion-row>
 
-  <ion-card *ngFor="let i of [0,1,2,3,4]">
+  <ion-card *ngFor="let p of photos">
     <ion-card-header>
       <ion-row class="ion-align-items-center">
         <ion-col size="auto">
           <ion-avatar class="feed-avatar">
-            <img [src]="'https://randomuser.me/api/portraits/women/'+i+'.jpg'" alt="">
+            <img [src]="'https://randomuser.me/api/portraits/women/'+p.user.id+'.jpg'" alt="">
           </ion-avatar>
         </ion-col>
         <ion-col>
-          <ion-card-title>usuario_xpto{{i}}</ion-card-title>
-          <ion-card-subtitle>Lugar FooBar</ion-card-subtitle>
+          <ion-card-title>{{p.user.name}}</ion-card-title>
+          <ion-card-subtitle>{{p.place}}</ion-card-subtitle>
         </ion-col>
       </ion-row>
     </ion-card-header>
-    <img [src]="'https://picsum.photos/id/'+(237+i)+'/500'" alt="">
+    <img [src]="p.url" alt="">
     <ion-card-content>
       <ion-row class="ion-margin-bottom">
         <ion-col size="auto" class="ion-no-padding">
-          <ion-button fill="clear">
-            <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+          <ion-button fill="clear" color="danger" (click)="p.liked = !p.liked">
+            <ion-icon [class.jump-animation]="p.liked" slot="icon-only" [name]="p.liked ? 'heart' : 'heart-outline'">
+            </ion-icon>
           </ion-button>
         </ion-col>
         <ion-col size="auto" class="ion-no-padding">
@@ -65,8 +66,10 @@
           </ion-button>
         </ion-col>
       </ion-row>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores molestias ex unde eos quas vitae consequuntur
-      sed fuga sint similique doloremque omnis modi, odit, libero, quia quos id aliquid ut.
+      <p>
+        {{p.description}}<br>
+        <small>Ver todos os {{p.commentCount}} comentários</small>
+      </p>
     </ion-card-content>
   </ion-card>
 

@@ -1,0 +1,25 @@
+.tag-list {
+    overflow-x: scroll;
+    ion-row {
+        width: min-content;
+        margin: 0.5rem 0;
+    }
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--ion-color-light-shade);
+        border-radius: 25px;
+    }
+    &::-webkit-scrollbar-track {
+        background: var(--ion-color-light-tint);
+        border-radius: 25px;
+    }
+}
+
+.photo-cell {
+    padding: 1px;
+    margin-bottom: -4px;
+}
