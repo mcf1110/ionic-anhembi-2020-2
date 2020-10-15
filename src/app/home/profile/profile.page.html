@@ -88,9 +88,8 @@
   </ion-segment>
 
   <ion-row>
-    <ion-col [routerLink]="['view', (100 + 2*i)]" class="grid-cell" [size]="gridSize"
-      *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14]">
-      <img [src]="'https://picsum.photos/id/'+(100 + 2*i)+'/500'" alt="">
+    <ion-col [routerLink]="['view', p.id]" class="grid-cell" [size]="gridSize" *ngFor="let p of photos">
+      <img [src]="'https://picsum.photos/id/'+p.id+'/500'" alt="">
     </ion-col>
   </ion-row>
 

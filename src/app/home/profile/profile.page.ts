@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Photo } from 'src/app/components/photo-card/photo-card.component';
+import { PhotosService } from 'src/app/services/photos.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,9 +11,12 @@ export class ProfilePage implements OnInit {
 
   public gridSize = 4;
 
-  constructor() { }
+  public photos: Photo[];
+
+  constructor(private photoService: PhotosService) { }
 
   ngOnInit() {
+    this.photos = this.photoService.allPhotos();
   }
 
 }
