@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SongService } from '../services/song.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public songs = this.songService.allSongs();
+
+  constructor(private songService: SongService) {
+
+  }
 
 }

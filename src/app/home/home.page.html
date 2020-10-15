@@ -7,4 +7,10 @@
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-item button [routerLink]="['/edit/', s.id]" *ngFor="let s of songs">
+      <ion-label>{{s.title}}</ion-label>
+      <ion-icon *ngIf="s.favorite" name="star" slot="end"></ion-icon>
+    </ion-item>
+  </ion-list>
 </ion-content>

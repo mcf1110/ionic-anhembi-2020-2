@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="song.title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Favorita</ion-label>
+      <ion-toggle slot="start" [(ngModel)]="song.favorite"></ion-toggle>
+    </ion-item>
+    <ion-button expand="block" (click)="save()">
+      <ion-icon slot="start" name="save"></ion-icon>
+      Salvar
+    </ion-button>
+  </ion-list>
+</ion-content>
