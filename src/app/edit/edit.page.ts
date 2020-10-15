@@ -1,22 +1,15 @@
-import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { ContactDetailsComponent } from './contact-details/contact-details.component';
-
-export interface Contact {
-  name: string;
-  username: string;
-  email: string;
-  phone: string;
-}
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Contact } from '../home/home.page';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-edit',
+  templateUrl: './edit.page.html',
+  styleUrls: ['./edit.page.scss'],
 })
-export class HomePage {
+export class EditPage implements OnInit {
 
-  public contacts: Contact[] = [
+  private contacts: Contact[] = [
     { name: 'Matheus', email: 'matheus.fernandes@anhembi.br', username: 'mcf1110', phone: '13 99999-9999' },
     { name: 'Bruno', email: 'bruno-alves-silva@hotmail.com', username: 'Brun41v35', phone: '11 4002-8922' },
     { name: 'Lucas', email: 'santoslucas707@gmail.com', username: 'lcsgomes', phone: '13 0000-0000' },
@@ -35,17 +28,17 @@ export class HomePage {
     { name: 'Raphael Henrique Cardoso Chimello', email: 'raphael@123.com', username: 'raphaelhcc', phone: '13 45663-56235' },
   ];
 
-  constructor(private modalController: ModalController) { }
+  public contact: Contact;
 
-  async showDetails(contact: Contact) {
-    const modal = await this.modalController.create({
-      component: ContactDetailsComponent,
-      componentProps: {
-        contact
-      }
-    });
+  constructor(private route: ActivatedRoute) { }
 
-    await modal.present();
+  ngOnInit() {
+    const username = this.route.snapshot.paramMap.get('username');
+    this.contact = this.contacts.find(c => c.username === username);
+  }
+
+  public handleSave() {
+    console.log(this.contact);
   }
 
 }

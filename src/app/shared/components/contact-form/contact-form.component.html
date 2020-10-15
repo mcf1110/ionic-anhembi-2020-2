@@ -1,0 +1,22 @@
+<ion-list>
+  <ion-item>
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input type="text" [(ngModel)]="contact.name" autocapitalize="on"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">E-mail</ion-label>
+    <ion-input type="email" [(ngModel)]="contact.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Telefone</ion-label>
+    <ion-input type="tel" [(ngModel)]="contact.phone"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Github</ion-label>
+    <ion-input type="text" [(ngModel)]="contact.username"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="this.save.emit()">
+    <ion-icon slot="start" name="save"></ion-icon>
+    Salvar
+  </ion-button>
+</ion-list>
