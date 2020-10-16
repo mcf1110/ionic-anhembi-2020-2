@@ -16,6 +16,14 @@ export class SongService {
     { id: 1, title: 'Let it be', favorite: false },
   ];
 
+  public empty(): Song {
+    return {
+      id: null,
+      title: '',
+      favorite: false
+    };
+  }
+
   public allSongs(): Readonly<Array<Readonly<Song>>> {
     return this.songs;
   }
@@ -27,5 +35,10 @@ export class SongService {
   public update(updatedSong: Song): void {
     const songIndex = this.songs.findIndex(s => s.id === updatedSong.id);
     this.songs[songIndex] = updatedSong;
+  }
+
+  public create(newSong: Song) {
+    const maxId = Math.max(...this.songs.map(s => s.id));
+    this.songs.push({ ...newSong, id: maxId + 1 });
   }
 }
