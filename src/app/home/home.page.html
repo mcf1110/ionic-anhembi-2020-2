@@ -1,10 +1,26 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Meu app
+      Meus contatos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-item *ngFor="let c of contacts" (click)="openModal(c)" button>
+      <ion-avatar slot="start">
+        <img [src]="'https://github.com/' + c.username + '.png'" alt="">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{c.name}}</h2>
+        <p>{{c.email}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/create">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
