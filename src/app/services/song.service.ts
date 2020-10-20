@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import { Storage } from '@ionic/storage'
+
 export interface Song {
   id: number;
   name: string;
@@ -11,10 +13,20 @@ export interface Song {
 })
 export class SongService {
 
-  private songs: Song[] = [
-    { id: 1, name: 'Never gonna give you up', favorite: true },
-    { id: 2, name: 'Let it be', favorite: false }
-  ];
+  private songs: Song[] = [];
+
+  constructor(private storage: Storage) {
+    this.loadData();
+  }
+
+  private async loadData() {
+    const loaded = await this.storage.get('songs') || [];
+    this.songs.push(...loaded);
+  }
+
+  private saveData() {
+    this.storage.set('songs', this.songs);
+  }
 
   public empty(): Song {
     return {
@@ -35,10 +47,14 @@ export class SongService {
   public update(song: Song) {
     const idx = this.songs.findIndex(s => s.id === song.id);
     this.songs[idx] = { ...song };
+    this.saveData();
   }
 
   public create(song: Song) {
-    const maxId = Math.max(...this.songs.map(s => s.id))
+    const maxId = this.songs.length ?
+      Math.max(...this.songs.map(s => s.id))
+      : 0;
     this.songs.push({ ...song, id: maxId + 1 });
+    this.saveData();
   }
 }
