@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import {Contact} from '../home.page'
+import { Contact } from 'src/app/services/contact.service';
 
 @Component({
   selector: 'app-contact-details',
@@ -16,7 +16,7 @@ export class ContactDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
-  public closeModal(){
+  public closeModal() {
     this.modalController.dismiss();
   }
 
