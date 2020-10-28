@@ -1,10 +1,27 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       Meu app
     </ion-title>
   </ion-toolbar>
+  <ion-toolbar color="light">
+    <ion-searchbar [(ngModel)]="search" (ionChange)="makeSearch()"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div *ngIf="result">
+    <ion-list *ngIf="result.count > 0; else notFound">
+      <ion-item *ngFor="let a of result.artists" button [routerLink]="['/details', a.id]">
+        <ion-label>
+          <h2>{{a.name}}</h2>
+          <p>{{a.disambiguation}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ng-template #notFound>
+      <p>Nenhum artista encontrado</p>
+    </ng-template>
+  </div>
 </ion-content>

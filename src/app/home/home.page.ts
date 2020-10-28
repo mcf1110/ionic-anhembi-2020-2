@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MusicService } from '../services/music.service';
+import { ArtistResult } from '../types/artist.result';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  public search = '';
+  public result: ArtistResult = null;
+  constructor(private musicService: MusicService) { }
 
-  constructor() {}
+  public async makeSearch() {
+    if (this.search.length < 2) {
+      return;
+    }
+    this.result = await this.musicService.searchArtist(this.search);
+  }
 
 }

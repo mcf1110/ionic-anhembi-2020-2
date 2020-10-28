@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="result">
+    <ion-card-header>
+      <ion-card-title>{{result.name}}</ion-card-title>
+      <ion-card-subtitle>{{result.disambiguation}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{result.begin_area.name}} - {{result['life-span'].begin | date}}/{{result['life-span'].end | date}}
+
+      <ion-list>
+        <ion-item *ngFor="let a of result['release-groups']">
+          <img class="ion-margin" [src]="'http://coverartarchive.org/release-group/'+a.id+'/front-250'" slot="start" width="75" height="75"/>
+          <ion-label>
+            <h2>{{a.title}}</h2>
+            <p>{{a['first-release-date'] | date}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
