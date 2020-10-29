@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Plugins } from '@capacitor/core'
+import { CameraResultType, CameraSource, Plugins } from '@capacitor/core'
 
 @Component({
   selector: 'app-home',
@@ -9,18 +9,16 @@ import { Plugins } from '@capacitor/core'
 })
 export class HomePage {
 
+  public photo: string;
+
   constructor() {
   }
 
   public async getPhoto() {
-    const connection = await Plugins.Network.getStatus();
-    if (connection.connectionType === 'wifi') {
-      console.log('Você está no wifi!');
-    } else if (connection.connectionType === 'none') {
-      console.log('Você está sem internet!');
-    } else {
-      console.log('Você está com um 3G ou algo do tipo!');
-    }
+    this.photo = (await Plugins.Camera.getPhoto({
+      resultType: CameraResultType.DataUrl,
+      source: CameraSource.Camera
+    })).dataUrl;
   }
 
 }
