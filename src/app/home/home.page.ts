@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Network } from '@ionic-native/network/ngx';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,16 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private network: Network) { }
+
+  public showConnection() {
+    if (this.network.type === this.network.Connection.WIFI) {
+      console.log('Você está no Wi-Fi!');
+    } else if (this.network.type === this.network.Connection.NONE) {
+      console.log('Você está desconectado!');
+    } else {
+      console.log('Você está em uma rede móvel')
+    }
+  }
 
 }
