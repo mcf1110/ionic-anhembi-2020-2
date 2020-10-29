@@ -1,10 +1,21 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Meu app
+      Artistas
     </ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="light">
+    <ion-searchbar  placeholder="Buscar artista" [(ngModel)]="search" (ionChange)="makeSearch()"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list *ngIf="results">
+    <ion-item *ngFor="let artist of results.artists" button details [routerLink]="['/details', artist.id]"> 
+      <ion-label>
+        <h2>{{artist.name}}</h2>
+        <p>{{artist.disambiguation}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
