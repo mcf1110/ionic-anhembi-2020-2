@@ -1,5 +1,5 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "br.com.anhembi.photo",
   "appName": "meu-primeiro-app",
   "bundledWebRuntime": false,
   "npmClient": "yarn",
@@ -10,9 +10,5 @@
     }
   },
   "cordova": {},
-  "linuxAndroidStudioPath": "/opt/android-studio/bin/studio.sh",
-  "server": {
-    "url": "http://192.168.0.107:8100",
-    "cleartext": true
-  }
+  "linuxAndroidStudioPath": "/opt/android-studio/bin/studio.sh"
 }
