@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Network } from '@ionic-native/network/ngx';
+
+import { CameraResultType, CameraSource, Plugins } from '@capacitor/core'
 
 @Component({
   selector: 'app-home',
@@ -8,16 +9,14 @@ import { Network } from '@ionic-native/network/ngx';
 })
 export class HomePage {
 
-  constructor(private network: Network) { }
+  public photo: string;
 
-  public showConnection() {
-    if (this.network.type === this.network.Connection.WIFI) {
-      console.log('Você está no Wi-Fi!');
-    } else if (this.network.type === this.network.Connection.NONE) {
-      console.log('Você está desconectado!');
-    } else {
-      console.log('Você está em uma rede móvel')
-    }
+  constructor() { }
+
+  public async takePicture() {
+    this.photo = (await Plugins.Camera.getPhoto({
+      resultType: CameraResultType.DataUrl,
+    })).dataUrl;
   }
 
 }
