@@ -4,6 +4,10 @@ import { CityService } from '../services/city.service';
 import { WeatherService } from '../services/weather.service';
 import { CityResult } from '../services/weather.types';
 
+import { Plugins } from '@capacitor/core';
+
+const { Geolocation } = Plugins;
+
 @Component({
   selector: 'app-create',
   templateUrl: './create.page.html',
@@ -21,6 +25,11 @@ export class CreatePage implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  public async getLocation() {
+    const p = await Geolocation.getCurrentPosition();
+    this.results = await this.weatherService.searchByLatLong(p.coords.latitude, p.coords.longitude);
   }
 
   public async search() {
