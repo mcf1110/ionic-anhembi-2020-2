@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CityService } from '../services/city.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+
+  constructor(private cityService: CityService) { }
+  public cities = this.cityService.all();
+
+  public remove(id: number) {
+    this.cityService.remove(id);
+  }
 
 }

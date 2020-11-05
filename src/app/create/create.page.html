@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Criar cidade</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button expand="block">
+    <ion-icon slot="start" name="location"></ion-icon>
+    Pegar localização
+  </ion-button>
+
+  <ion-searchbar placeholder="Buscar cidade"></ion-searchbar>
+
+  <ion-list>
+    <ion-item button (click)="create()">
+      <ion-label>Awesome Label</ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
