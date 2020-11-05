@@ -11,4 +11,21 @@
   <h1>{{city.name}}</h1>
 
   <p>Localização: {{city.location.latitude}}, {{city.location.longitude}}</p>
+
+  <div *ngIf="forecast; else loading">
+    <ion-list>
+      <ion-item *ngFor="let c of forecast.consolidated_weather">
+        <img [src]="'https://www.metaweather.com/static/img/weather/'+c.weather_state_abbr+'.svg'"
+          [alt]="c.weather_state_name" width="40" slot="start">
+        <ion-label>
+          <h2>{{c.applicable_date | date}}</h2>
+          <p><strong>Máxima:</strong> {{c.max_temp | number:'1.0-0'}}°C &mdash; <strong>Mínima:</strong>
+            {{c.min_temp | number:'1.0-0'}}°C</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ng-template #loading>
+    <ion-spinner></ion-spinner>
+  </ng-template>
 </ion-content>

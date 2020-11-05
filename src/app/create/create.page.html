@@ -8,16 +8,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-button expand="block" class="ion-margin" (click)="create()">
+  <ion-button expand="block" class="ion-margin">
     <ion-icon slot="start" name="location"></ion-icon>
     Pegar localização atual
   </ion-button>
   <ion-list>
     <ion-item>
-      <ion-searchbar placeholder="Buscar cidade"> </ion-searchbar>
+      <ion-searchbar placeholder="Buscar cidade" [(ngModel)]="query" (ionChange)="search()"> </ion-searchbar>
     </ion-item>
-    <ion-item *ngFor="let i of [1,2,3,4,5,6,7]" button (click)="create()">
-      <ion-label>Awesome Label</ion-label>
+    <ion-item *ngFor="let r of results" button (click)="create(r)">
+      <ion-label>{{r.title}}</ion-label>
     </ion-item>
   </ion-list>
 

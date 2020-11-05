@@ -18,7 +18,7 @@ export class CityService {
   private cities: City[] = [];
 
   constructor(private storage: Storage) {
-    this.storage.get('cities').then(v => this.cities.push(...v));
+    this.storage.get('cities').then(v => { if (v) { this.cities.push(...v); } });
   }
 
   public all() {
@@ -26,8 +26,7 @@ export class CityService {
   }
 
   public create(city: City) {
-    const maxId = Math.max(...this.cities.map(c => c.id));
-    this.cities.push({ ...city, id: maxId + 1 });
+    this.cities.push({ ...city });
     this.storage.set('cities', this.cities);
   }
 
