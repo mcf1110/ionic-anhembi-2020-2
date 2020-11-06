@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { CityService } from '../services/city.service';
+import { CityResult } from '../services/metaweather.types';
+import { WeatherService } from '../services/weather.service';
 
 @Component({
   selector: 'app-create',
@@ -9,24 +11,33 @@ import { CityService } from '../services/city.service';
 })
 export class CreatePage implements OnInit {
 
+  public query = '';
+  public suggestions: CityResult[] = [];
+
   constructor(
     private cityService: CityService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private weatherService: WeatherService,
   ) { }
 
   ngOnInit() {
   }
 
-  public create() {
+  public create(cr: CityResult) {
+    const [lat, long] = cr.latt_long.split(',');
     this.cityService.create({
-      id: 15,
-      name: 'Rio de janeiro',
+      id: cr.woeid,
+      name: cr.title,
       location: {
-        latitude: -40,
-        longitude: -30
+        latitude: +lat,
+        longitude: +long
       }
     });
     this.navCtrl.back();
+  }
+
+  public async search() {
+    this.suggestions = await this.weatherService.search(this.query);
   }
 
 }

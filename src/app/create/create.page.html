@@ -13,11 +13,11 @@
     Pegar localização
   </ion-button>
 
-  <ion-searchbar placeholder="Buscar cidade"></ion-searchbar>
+  <ion-searchbar placeholder="Buscar cidade" [(ngModel)]="query" (ionChange)="search()"></ion-searchbar>
 
   <ion-list>
-    <ion-item button (click)="create()">
-      <ion-label>Awesome Label</ion-label>
+    <ion-item button (click)="create(s)" *ngFor="let s of suggestions">
+      <ion-label>{{s.title}}</ion-label>
     </ion-item>
   </ion-list>
 

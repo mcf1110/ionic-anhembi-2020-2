@@ -11,9 +11,28 @@
   <div *ngIf="city">
     <h1>{{city.name}}</h1>
     <p>
-      <strong>Latitude: </strong> {{city.location.latitude}} &mdash;
-      <strong>Longitude: </strong> {{city.location.longitude}}
+      <strong>Latitude: </strong> {{city.location.latitude | number:'1.0-1'}} &mdash;
+      <strong>Longitude: </strong> {{city.location.longitude | number:'1.0-1'}}
     </p>
+
+    <div *ngIf="forecast; else loading">
+      <ion-list>
+        <ion-item *ngFor="let d of forecast.consolidated_weather">
+          <img width="40" [src]="'https://www.metaweather.com/static/img/weather/'+d.weather_state_abbr+'.svg'"
+            [alt]="d.weather_state_name" slot="start">
+          <ion-label>
+            <h2>{{d.applicable_date | date}}</h2>
+            <p>
+              <strong>Máx </strong> {{d.max_temp | number:'1.0-1'}}&deg;C &mdash;
+              <strong>Min </strong> {{d.min_temp | number:'1.0-1'}}&deg;C
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+    <ng-template #loading>
+      <ion-spinner></ion-spinner>
+    </ng-template>
   </div>
 
 </ion-content>
