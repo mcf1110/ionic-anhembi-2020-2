@@ -4,6 +4,8 @@ import { CityService } from '../services/city.service';
 import { CityResult } from '../services/metaweather.types';
 import { WeatherService } from '../services/weather.service';
 
+import { Plugins } from '@capacitor/core';
+
 @Component({
   selector: 'app-create',
   templateUrl: './create.page.html',
@@ -21,6 +23,14 @@ export class CreatePage implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  public async getLocation() {
+    const position = await Plugins.Geolocation.getCurrentPosition();
+    this.suggestions = await this.weatherService.findByLocation(
+      position.coords.latitude,
+      position.coords.longitude
+    )
   }
 
   public create(cr: CityResult) {

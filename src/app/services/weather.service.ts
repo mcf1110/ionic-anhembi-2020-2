@@ -14,6 +14,11 @@ export class WeatherService {
     return this.http.get(url).toPromise() as Promise<CityResult[]>;
   }
 
+  public findByLocation(lat: number, long: number) {
+    const url = `https://www.metaweather.com/api/location/search/?lattlong=${lat},${long}`;
+    return this.http.get(url).toPromise() as Promise<CityResult[]>;
+  }
+
   public forecast(id: number) {
     const url = `https://www.metaweather.com/api/location/${id}`;
     return this.http.get(url).toPromise() as Promise<ForecastResult>;
