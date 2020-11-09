@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CameraResultType, Plugins } from '@capacitor/core';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public photo: string;
 
+  constructor() { }
+
+  public async getPhoto() {
+    const photo = await Plugins.Camera.getPhoto({
+      resultType: CameraResultType.DataUrl,
+    });
+    this.photo = photo.dataUrl;
+  }
 }

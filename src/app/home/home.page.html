@@ -1,10 +1,14 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Meu app
+      Live reload!
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <img [src]="photo" alt="">
+  <ion-button (click)="getPhoto()" expand="block">
+    Tirar foto
+  </ion-button>
 </ion-content>

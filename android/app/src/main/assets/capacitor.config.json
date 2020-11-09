@@ -1,0 +1,18 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "meu-primeiro-app",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {},
+  "linuxAndroidStudioPath": "/opt/android-studio/bin/studio.sh",
+  "server": {
+    "url": "http://192.168.0.107:8100",
+    "cleartext": true
+  }
+}
