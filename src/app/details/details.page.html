@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div *ngIf="results; else loading">
+    <h1>{{results.name}}</h1>
+    <p>{{results.disambiguation}}</p>
+    <p>
+      <strong>Início: </strong> {{results['life-span'].begin | date}} &mdash;
+      <strong>Fim: </strong>  {{results['life-span'].end | date}} 
+    </p>
+  
+    <h2>Lançamentos</h2>
+    <ion-list>
+      <ion-item *ngFor="let r of results['release-groups']">
+        <img [src]="'http://coverartarchive.org/release-group/'+r.id+'/front-250'" width="70" height="70" slot="start">
+        <ion-label>{{r.title}} ({{r['first-release-date'] | date:'y'}})</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ng-template #loading>
+    <ion-spinner></ion-spinner>
+  </ng-template>
+
+</ion-content>
