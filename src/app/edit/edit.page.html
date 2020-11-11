@@ -8,5 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <app-contact-form [contact]="contact" (save)="handleSave()"></app-contact-form>
+  <div *ngIf="contact | async as c">
+    <app-contact-form [contact]="c" (save)="handleSave(c)"></app-contact-form>
+  </div>
 </ion-content>
