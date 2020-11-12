@@ -4,6 +4,9 @@
       Contatos
     </ion-title>
   </ion-toolbar>
+  <ion-toolbar color="light">
+    <ion-input type="text" placeholder="Filtrar contatos" (ionChange)="emitSearch($event.detail.value)"></ion-input>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
