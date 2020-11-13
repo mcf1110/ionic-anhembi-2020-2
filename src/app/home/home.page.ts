@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Contact, ContactService } from '../services/contact.service';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
+
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +12,9 @@ import { ContactDetailsComponent } from './contact-details/contact-details.compo
 })
 export class HomePage {
 
-  public contacts: Contact[] = this.contactService.all();
+  public contacts = this.contactService.all().pipe(
+    map(cs => [...cs].sort((a, b) => a.name.localeCompare(b.name))),
+  )
 
   constructor(
     private modalController: ModalController,

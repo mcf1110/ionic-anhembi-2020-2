@@ -8,7 +8,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let c of contacts" button (click)="showDetails(c)">
+    <ion-item *ngFor="let c of (contacts | async)" button (click)="showDetails(c)">
       <ion-avatar slot="start">
         <img [src]="'https://github.com/'+c.username+'.png'" alt="">
       </ion-avatar>
