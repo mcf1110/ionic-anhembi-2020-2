@@ -41,4 +41,9 @@ export class HomePage {
     await modal.present();
   }
 
+  public doRefresh(event) {
+    this.contactService.add();
+    event.target.complete();
+  }
+
 }

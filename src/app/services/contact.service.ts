@@ -48,4 +48,15 @@ export class ContactService {
     this.contacts[idx] = { ...contact };
     this.saveUpdates();
   }
+
+  public add() {
+    const newContact: Contact = {
+      name: 'Atualizado',
+      email: 'atu@teste.com',
+      phone: '1595191',
+      username: 'zzzz'
+    };
+    this.contacts.push(newContact);
+    this.contact$.next([...this.contacts]);
+  }
 }
