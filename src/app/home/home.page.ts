@@ -3,6 +3,8 @@ import { ModalController } from '@ionic/angular';
 import { Contact, ContactService } from '../services/contact.service';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
 
+import { debounceTime, map, tap } from 'rxjs/operators'
+import { BehaviorSubject, combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +13,24 @@ import { ContactDetailsComponent } from './contact-details/contact-details.compo
 })
 export class HomePage {
 
-  public contacts = this.contactService.all();
+  public search$ = new BehaviorSubject('');
+
+  public contacts = combineLatest([this.contactService.all(), this.search$])
+    .pipe(
+      debounceTime(200),
+      map(([cs, search]) => cs.filter(c => c.name.startsWith(search))),
+      map(cs => [...cs].sort((a, b) => a.name.localeCompare(b.name)))
+    );
 
   constructor(
     private modalController: ModalController,
     private contactService: ContactService
-  ) { }
+  ) {
+  }
+
+  public updateSearch(str) {
+    this.search$.next(str);
+  }
 
   public async openModal(contact: Contact) {
     const modal = await this.modalController.create({
@@ -26,6 +40,11 @@ export class HomePage {
       }
     });
     modal.present();
+  }
+
+  public doRefresh(event) {
+    this.contactService.add();
+    event.target.complete();
   }
 
 }

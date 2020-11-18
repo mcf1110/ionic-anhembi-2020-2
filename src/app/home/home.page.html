@@ -4,11 +4,17 @@
       Meus contatos
     </ion-title>
   </ion-toolbar>
+  <ion-toolbar color="light">
+    <ion-input type="text" placeholder="Busca" (ionChange)="updateSearch($event.detail.value)"></ion-input>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-list>
-    <ion-item *ngFor="let c of contacts" (click)="openModal(c)" button>
+    <ion-item *ngFor="let c of (contacts | async)" (click)="openModal(c)" button>
       <ion-avatar slot="start">
         <img [src]="'https://github.com/' + c.username + '.png'" alt="">
       </ion-avatar>

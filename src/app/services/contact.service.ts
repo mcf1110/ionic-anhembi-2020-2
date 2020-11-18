@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { BehaviorSubject } from 'rxjs';
 
 export interface Contact {
   name: string;
@@ -14,6 +15,7 @@ export interface Contact {
 export class ContactService {
 
   private contacts: Contact[] = [];
+  private contacts$ = new BehaviorSubject<Contact[]>([]);
 
   constructor(private storage: Storage) {
     this.loadData();
@@ -22,14 +24,16 @@ export class ContactService {
   private async loadData() {
     const loaded = await this.storage.get('contacts') as Contact[];
     this.contacts.push(...loaded);
+    this.contacts$.next([...this.contacts]);
   }
 
   private saveData() {
     this.storage.set('contacts', this.contacts);
+    this.contacts$.next([...this.contacts]);
   }
 
   public all() {
-    return this.contacts;
+    return this.contacts$;
   }
 
   public create(contact: Contact) {
@@ -45,5 +49,15 @@ export class ContactService {
 
   public find(username: string) {
     return { ...this.contacts.find(c => c.username === username) };
+  }
+
+  public add() {
+    this.contacts.push({
+      email: 'teste@teste.com',
+      name: 'teste',
+      phone: '1519651951',
+      username: 'teste'
+    });
+    this.contacts$.next([...this.contacts]);
   }
 }
