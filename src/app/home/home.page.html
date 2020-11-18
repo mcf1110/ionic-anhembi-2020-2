@@ -10,18 +10,35 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="result">
-    <ion-list *ngIf="result.count > 0; else notFound">
-      <ion-item *ngFor="let a of result.artists" button [routerLink]="['/details', a.id]">
+  <div *ngIf="!isLoading; else loading">
+    <div *ngIf="result">
+      <ion-list *ngIf="result.count > 0; else notFound">
+        <ion-item *ngFor="let a of result.artists" button [routerLink]="['/details', a.id]">
+          <ion-label>
+            <h2>{{a.name}}</h2>
+            <p>{{a.disambiguation}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ng-template #notFound>
+        <p>Nenhum artista encontrado</p>
+      </ng-template>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <ion-list>
+      <ion-item *ngFor="let a of [1,2,3,4,5]" button [routerLink]="['/details', a.id]">
         <ion-label>
-          <h2>{{a.name}}</h2>
-          <p>{{a.disambiguation}}</p>
+          <h2>
+            <ion-skeleton-text animated style="width: 10em; height: 1em;"></ion-skeleton-text>
+          </h2>
+          <p>
+            <ion-skeleton-text animated style="width: 15em"></ion-skeleton-text>
+          </p>
         </ion-label>
       </ion-item>
     </ion-list>
-
-    <ng-template #notFound>
-      <p>Nenhum artista encontrado</p>
-    </ng-template>
-  </div>
+  </ng-template>
 </ion-content>
