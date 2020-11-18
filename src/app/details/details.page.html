@@ -18,7 +18,8 @@
 
       <ion-list>
         <ion-item *ngFor="let a of result['release-groups']">
-          <img class="ion-margin" [src]="'http://coverartarchive.org/release-group/'+a.id+'/front-250'" slot="start" width="75" height="75"/>
+          <img class="ion-margin" [src]="'//coverartarchive.org/release-group/'+a.id+'/front-250'" slot="start"
+            width="75" height="75" />
           <ion-label>
             <h2>{{a.title}}</h2>
             <p>{{a['first-release-date'] | date}}</p>
