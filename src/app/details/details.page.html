@@ -14,7 +14,8 @@
       <ion-card-subtitle>{{result.disambiguation}}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      {{result.begin_area.name}} - {{result['life-span'].begin | date}}/{{result['life-span'].end | date}}
+      {{result.begin_area.name}} &mdash;
+      {{result['life-span'].begin | releaseDate}}&ndash;{{result['life-span'].end | releaseDate}}
 
       <ion-list>
         <ion-item *ngFor="let a of result['release-groups']">
@@ -22,7 +23,7 @@
             width="75" height="75" />
           <ion-label>
             <h2>{{a.title}}</h2>
-            <p>{{a['first-release-date'] | date}}</p>
+            <p>{{a['first-release-date'] | releaseDate}}</p>
           </ion-label>
         </ion-item>
       </ion-list>
