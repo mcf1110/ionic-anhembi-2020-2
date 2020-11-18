@@ -6,5 +6,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <h1>Página interna!</h1>
+  <ion-button (click)="logout()" expand="block">
+    Logout
+  </ion-button>
+
+  <ion-button routerLink="/register" expand="block" fill="outline">
+    Registrar
+  </ion-button>
 </ion-content>
