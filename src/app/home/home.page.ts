@@ -11,6 +11,7 @@ export class HomePage {
 
   public search = '';
   public results: ArtistResult = null;
+  public isLoaded = true;
 
   constructor(private musicService: MusicService) { }
 
@@ -18,7 +19,9 @@ export class HomePage {
     if (this.search.length == 0) {
       return;
     }
+    this.isLoaded = false;
     this.results = await this.musicService.searchArtist(this.search);
+    this.isLoaded = true;
   }
 
 }
