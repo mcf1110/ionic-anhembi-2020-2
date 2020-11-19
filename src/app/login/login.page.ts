@@ -9,8 +9,10 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginPage implements OnInit {
 
-  public email = '';
-  public pass = '';
+  public user = {
+    email: '',
+    pass: ''
+  }
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -18,7 +20,7 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    if (this.authService.login(this.email, this.pass)) {
+    if (this.authService.login(this.user.email, this.user.pass)) {
       this.router.navigate(['/home']);
     }
   }

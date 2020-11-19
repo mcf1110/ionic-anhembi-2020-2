@@ -5,17 +5,40 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label position="floating">E-Mail</ion-label>
-    <ion-input [(ngModel)]="email" type="text"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Senha</ion-label>
-    <ion-input [(ngModel)]="pass" type="text"></ion-input>
-  </ion-item>
-  <ion-button (click)="login()" expand="block">
-    Login
-  </ion-button>
+  <form #formLogin="ngForm">
+    <ion-item>
+      <ion-label position="floating">E-Mail</ion-label>
+      <ion-input [(ngModel)]="user.email" type="text" name="email" #email="ngModel" required email></ion-input>
+    </ion-item>
+
+    <div *ngIf="email.invalid && email.touched">
+      <ion-item color="danger" *ngIf="email.errors.required">
+        Digite seu e-mail
+      </ion-item>
+      <ion-item color="danger" *ngIf="email.errors.email">
+        Não é um e-mail
+      </ion-item>
+    </div>
+
+
+    <ion-item>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input [(ngModel)]="user.pass" type="text" name="pass" #pass="ngModel" required minlength="6"></ion-input>
+    </ion-item>
+
+    <div *ngIf="pass.invalid && pass.touched">
+      <ion-item color="danger" *ngIf="pass.errors.required">
+        Digite seua senha
+      </ion-item>
+      <ion-item color="danger" *ngIf="pass.errors.minlength">
+        Sua senha deve ter ao menos 6 caracteres
+      </ion-item>
+    </div>
+
+    <ion-button (click)="login()" expand="block" [disabled]="formLogin.invalid">
+      Login
+    </ion-button>
+  </form>
   <ion-button routerLink="/register" expand="block" fill="outline">
     Registrar
   </ion-button>
