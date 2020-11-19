@@ -5,17 +5,38 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-label position="floating">E-Mail</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Senha</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-  </ion-list>
-  <ion-button (click)="login()" expand="block">
+  <form #loginForm="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">E-Mail</ion-label>
+        <ion-input name="email" [(ngModel)]="user.email" #email="ngModel" type="text" required email></ion-input>
+      </ion-item>
+
+      <div *ngIf="email.invalid && email.touched">
+        <ion-item color="danger" *ngIf="email.errors.required">
+          <ion-label>O e-mail é obrigatório</ion-label>
+        </ion-item>
+        <ion-item color="danger" *ngIf="email.errors.email">
+          <ion-label>Deve ser um e-mail válido</ion-label>
+        </ion-item>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input name="pass" [(ngModel)]="user.pass" #pass="ngModel" type="text" required minlength="6"></ion-input>
+      </ion-item>
+
+      <div *ngIf="pass.invalid && pass.touched">
+        <ion-item color="danger" *ngIf="pass.errors.required">
+          <ion-label>A senha é obrigatória</ion-label>
+        </ion-item>
+        <ion-item color="danger" *ngIf="pass.errors.minlength">
+          <ion-label>Deve ter ao menos 6 caracteres</ion-label>
+        </ion-item>
+      </div>
+    </ion-list>
+  </form>
+  <ion-button (click)="login()" expand="block" [disabled]="loginForm.invalid">
     Login
   </ion-button>
 </ion-content>

@@ -7,7 +7,12 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
+
+  public user = {
+    email: '',
+    pass: ''
+  }
 
   constructor(private auth: AuthService, private router: Router) { }
 
