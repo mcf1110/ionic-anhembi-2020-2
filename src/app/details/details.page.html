@@ -15,8 +15,8 @@
       <ion-card-subtitle>{{results.disambiguation}}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <p>Começou: {{results['life-span'].begin}}</p>
-      <p *ngIf="results['life-span'].ended">Terminou: {{results['life-span'].end}}</p>
+      <p>Começou: {{results['life-span'].begin | releaseDate}}</p>
+      <p *ngIf="results['life-span'].ended">Terminou: {{results['life-span'].end | releaseDate}}</p>
 
       <hr>
 
@@ -26,7 +26,12 @@
         <ion-item *ngFor="let r of results['release-groups']">
           <img [src]="'//coverartarchive.org/release-group/'+r.id+'/front-250'" slot="start" [alt]="r.title" width="100"
             height="100">
-          <ion-label>{{r.title}} ({{r['first-release-date'] | date:'y'}})</ion-label>
+          <ion-label>
+            <h2>
+              {{r.title}}
+            </h2>
+            <p> {{r['first-release-date'] | releaseDate}}</p>
+          </ion-label>
         </ion-item>
       </ion-list>
     </ion-card-content>
