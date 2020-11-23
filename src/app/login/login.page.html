@@ -6,16 +6,34 @@
 
 <ion-content>
   <ion-list>
-    <ion-item>
-      <ion-label position="floating">E-Mail</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Senha</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-    <ion-button (click)="login()" expand="block">
-      Fazer login
-    </ion-button>
+    <form #loginForm="ngForm">
+      <ion-item>
+        <ion-label position="floating">E-Mail</ion-label>
+        <ion-input #email="ngModel" name="email" [(ngModel)]="user.email" type="text" required email></ion-input>
+      </ion-item>
+      <div *ngIf="email.invalid && email.touched">
+        <ion-item color="danger" *ngIf="email.errors.required">
+          E-mail é obrigatório
+        </ion-item>
+        <ion-item color="danger" *ngIf="email.errors.email">
+          E-mail não parece válido
+        </ion-item>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input #pass="ngModel" name="pass" [(ngModel)]="user.pass" type="text" required minlength="6"></ion-input>
+      </ion-item>
+      <div *ngIf="pass.invalid && pass.touched">
+        <ion-item color="danger" *ngIf="pass.errors.required">
+          Senha é obrigatória
+        </ion-item>
+        <ion-item color="danger" *ngIf="pass.errors.minlength">
+          Senha deve ter ao menos 6 caracteres
+        </ion-item>
+      </div>
+      <ion-button (click)="login()" expand="block" [disabled]="loginForm.invalid">
+        Fazer login
+      </ion-button>
+    </form>
   </ion-list>
 </ion-content>
