@@ -13,15 +13,22 @@
     <h1>{{results.name}}</h1>
     <p>{{results.disambiguation}}</p>
     <p>
-      <strong>Início: </strong> {{results['life-span'].begin | date}} &mdash;
-      <strong>Fim: </strong> {{results['life-span'].end | date}}
+      <strong>Início: </strong> {{results['life-span'].begin | releaseDate}} &mdash;
+      <strong>Fim: </strong> {{results['life-span'].end | releaseDate}}
     </p>
 
     <h2>Lançamentos</h2>
     <ion-list>
       <ion-item *ngFor="let r of results['release-groups']">
         <img [src]="'//coverartarchive.org/release-group/'+r.id+'/front-250'" width="70" height="70" slot="start">
-        <ion-label>{{r.title}} ({{r['first-release-date'] | date:'y'}})</ion-label>
+        <ion-label>
+          <h2>
+            {{r.title}}
+          </h2>
+          <p>
+            {{r['first-release-date'] | releaseDate}}
+          </p>
+        </ion-label>
       </ion-item>
     </ion-list>
   </div>
