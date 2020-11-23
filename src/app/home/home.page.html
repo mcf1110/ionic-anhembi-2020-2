@@ -10,12 +10,29 @@
 </ion-header>
 
 <ion-content>
-  <ion-list *ngIf="results">
-    <ion-item button *ngFor="let artist of results.artists" [routerLink]="['/details', artist.id]">
-      <ion-label>
-        <h2>{{artist.name}}</h2>
-        <p>{{artist.disambiguation}}</p>
-    </ion-label>
-    </ion-item>
-  </ion-list>
+  <div *ngIf="!isLoading; else loading">
+    <ion-list *ngIf="results">
+      <ion-item button *ngFor="let artist of results.artists" [routerLink]="['/details', artist.id]">
+        <ion-label>
+          <h2>{{artist.name}}</h2>
+          <p>{{artist.disambiguation}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ng-template #loading>
+    <ion-list>
+      <ion-item *ngFor="let _ of [1,2,3,4]">
+        <ion-label>
+          <h2>
+            <ion-skeleton-text animated style="height: 1em; width: 30%"></ion-skeleton-text>
+          </h2>
+          <p>
+            <ion-skeleton-text animated style="height: .8em; width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-template>
 </ion-content>
